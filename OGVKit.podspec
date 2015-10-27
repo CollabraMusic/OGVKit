@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "7.0"
 
-  s.source       = { :git => "https://github.com/brion/OGVKit.git",
+  s.source       = { :git => "https://github.com/CollabraMusic/OGVKit.git",
                      :submodules => true }
 
   s.source_files = "Classes/OGVKit.{h,m}",
@@ -110,7 +110,7 @@ Pod::Spec.new do |s|
   end
   s.subspec "VP8Decoder" do |svp8decoder|
     svp8decoder.xcconfig = { 'OTHER_CFLAGS' => '-DOGVKIT_HAVE_VP8_DECODER' }
-    svp8decoder.dependency 'libvpx', '~>1.4.0-snapshot-20150931-xcode64'
+    svp8decoder.dependency 'nighthawk-webrtc'
   end
 
   # Audio decoder module subspecs

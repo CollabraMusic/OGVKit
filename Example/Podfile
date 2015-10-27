@@ -1,7 +1,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 # temp hack
-source 'https://github.com/brion/OGVKit-Specs.git'
+source 'https://github.com/CollabraMusic/Specs.git'
 
 # needed to link OGVKit libraries into the tests as well as the example itself
 link_with 'OGVKit', 'OGVKit Tests'

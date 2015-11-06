@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.author             = { "Brion Vibber" => "brion@pobox.com" }
   s.social_media_url   = "https://brionv.com/"
 
-  s.platform     = :ios, "7.0"
+  s.platform     = :ios, "8.0"
 
   s.source       = { :git => "https://github.com/CollabraMusic/OGVKit.git",
                      :submodules => true }
@@ -36,7 +36,14 @@ Pod::Spec.new do |s|
                    "Classes/OGVFrameView.{h,m}",
                    "Classes/OGVAudioFeeder.{h,m}",
                    "Classes/OGVPlayerState.{h,m}",
-                   "Classes/OGVPlayerView.{h,m}"
+                   "Classes/OGVPlayerView.{h,m}",
+                   "Classes/OGVDecoderOgg.h",
+                   "Classes/OGVDecoderOggPacket.h",
+                   "Classes/OGVDecoderWebM.h",
+                   "Classes/OGVDecoderWebMPacket.h",
+                   "libskeleton/includes/skeleton/skeleton.h",
+                   "libskeleton/includes/skeleton/skeleton_constants.h",
+                   "libskeleton/includes/skeleton/skeleton_query.h"
 
   s.public_header_files = "Classes/OGVKit.h",
                           "Classes/OGVQueue.h",
@@ -63,6 +70,9 @@ Pod::Spec.new do |s|
       'Resources/ogvkit-iconfont.ttf'
     ]
   }
+
+  s.module_name = 'OGVKit'
+  s.module_map = 'OGVKit.modulemap'
 
   # File format convenience subspecs
   s.subspec "Ogg" do |sogg|
@@ -94,7 +104,7 @@ Pod::Spec.new do |s|
     soggdemuxer.source_files = "Classes/OGVDecoderOgg.{h,m}",
                                "Classes/OGVDecoderOggPacket.{h,m}"
     soggdemuxer.dependency 'liboggz'
-    soggdemuxer.dependency 'OGVKit/libskeleton'
+    soggdemuxer.dependency 'OGVKit/libskeleton', '~>0.4'
   end
   s.subspec "WebMDemuxer" do |swebmdemuxer|
     swebmdemuxer.xcconfig = { 'OTHER_CFLAGS' => '-DOGVKIT_HAVE_WEBM_DEMUXER' }

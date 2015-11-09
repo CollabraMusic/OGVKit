@@ -120,7 +120,7 @@ Pod::Spec.new do |s|
   end
   s.subspec "VP8Decoder" do |svp8decoder|
     svp8decoder.xcconfig = { 'OTHER_CFLAGS' => '-DOGVKIT_HAVE_VP8_DECODER' }
-    svp8decoder.dependency 'nighthawk-webrtc'
+    svp8decoder.dependency 'webrtc-ios'
   end
 
   # Audio decoder module subspecs
